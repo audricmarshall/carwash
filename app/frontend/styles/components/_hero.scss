@@ -1,0 +1,146 @@
+@use "../tokens" as *;
+
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding: calc(var(--header-height) + #{$space-8}) 0 $space-10;
+  overflow: hidden;
+  background: $ink;
+  color: $foam;
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 55% at 78% 18%, rgba($water, 0.55), transparent 72%),
+      radial-gradient(45% 45% at 12% 92%, rgba($water-deep, 0.5), transparent 70%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__eyebrow {
+    font-size: $text-sm;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $water;
+  }
+
+  &__title {
+    max-width: 13ch;
+    margin: $space-3 0 $space-5;
+    font-size: clamp(2.5rem, 8vw, 4.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    color: $foam;
+
+    .word {
+      display: inline-block;
+      margin-right: 0.22em;
+      overflow: hidden;
+      vertical-align: top;
+
+      > span {
+        display: inline-block;
+        will-change: transform;
+      }
+    }
+  }
+
+  &__lead {
+    max-width: 44ch;
+    font-size: $text-lg;
+    color: rgba($foam, 0.82);
+
+    @include up($bp-md) {
+      font-size: $text-xl;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+    margin-top: $space-6;
+  }
+
+  &__note {
+    margin-top: $space-4;
+    font-size: $text-sm;
+    color: rgba($foam, 0.65);
+  }
+}
+
+.hero__inner {
+  display: grid;
+  gap: $space-8;
+  align-items: center;
+
+  @include up($bp-lg) {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+}
+
+.hero__visual {
+  position: relative;
+  max-width: 34rem;
+  margin-inline: auto;
+  width: 100%;
+
+  @include up($bp-lg) {
+    max-width: none;
+  }
+}
+
+.van {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+
+  &__water {
+    animation: van-water 7s ease-in-out infinite alternate;
+  }
+
+  &__bubble {
+    fill: #ffffff;
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: van-bubble 5s ease-in-out infinite;
+  }
+}
+
+@keyframes van-water {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-80px);
+  }
+}
+
+@keyframes van-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.6);
+  }
+
+  20% {
+    opacity: 0.85;
+  }
+
+  80% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.1);
+  }
+}

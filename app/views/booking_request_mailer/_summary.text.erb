@@ -1,0 +1,9 @@
+Formule : <%= booking_request.package&.name || "À définir ensemble" %>
+Adresse : <%= booking_request.address %>, <%= booking_request.postcode %> <%= booking_request.city %>
+<% if booking_request.vehicle.present? %>
+Véhicule : <%= booking_request.vehicle %>
+<% end %>
+<% if booking_request.preferred_date.present? %>
+Date souhaitée : <%= l(booking_request.preferred_date, format: :long) %>
+<% end %>
+Moment : <%= t("activerecord.attributes.booking_request.preferred_periods.#{booking_request.preferred_period}") %>

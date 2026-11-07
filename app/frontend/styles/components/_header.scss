@@ -1,0 +1,143 @@
+@use "../tokens" as *;
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--header-height);
+  background: rgba($ink, 0.84);
+  backdrop-filter: blur(12px);
+  color: $foam;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+    height: 100%;
+  }
+
+  &__brand {
+    font-size: $text-lg;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: $foam;
+    text-decoration: none;
+  }
+
+  &__toggle {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: $radius-sm;
+
+    @include up($bp-md) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.375rem;
+    height: 2px;
+    background: $foam;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $foam;
+      transition: transform 0.2s ease;
+    }
+
+    &::before {
+      transform: translateY(-7px);
+    }
+
+    &::after {
+      transform: translateY(7px);
+    }
+  }
+
+  &__toggle[aria-expanded="true"] &__burger {
+    background: transparent;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.site-nav {
+  position: absolute;
+  inset: var(--header-height) 0 auto;
+  display: none;
+  padding: $space-4 $space-5 $space-6;
+  background: $ink;
+  border-top: 1px solid rgba($foam, 0.08);
+
+  &.is-open {
+    display: block;
+  }
+
+  @include up($bp-md) {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: $space-5;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    margin-bottom: $space-5;
+
+    @include up($bp-md) {
+      flex-direction: row;
+      gap: $space-5;
+      margin: 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: $space-1 0;
+      font-weight: 600;
+      color: rgba($foam, 0.85);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease;
+
+      &:hover,
+      &.is-active {
+        color: $foam;
+      }
+
+      &.is-active {
+        border-color: $water;
+      }
+    }
+  }
+
+  &__cta {
+    width: 100%;
+
+    @include up($bp-md) {
+      width: auto;
+    }
+  }
+}

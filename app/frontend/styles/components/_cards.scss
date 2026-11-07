@@ -1,0 +1,155 @@
+@use "../tokens" as *;
+
+.package-grid {
+  display: grid;
+  gap: $space-5;
+
+  @include up($bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.package-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: $space-6 $space-5;
+  background: $foam;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  transition: transform 0.25s ease;
+
+  // l'ombre au survol est portée par un pseudo-élément : seule son opacité est animée
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: $shadow-card-hover;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &--featured {
+    border-color: $water;
+    background: linear-gradient(180deg, rgba($water, 0.08), $foam 40%);
+  }
+
+  &__badge {
+    position: absolute;
+    top: -0.8rem;
+    left: $space-5;
+    padding: $space-1 $space-3;
+    border-radius: $radius-pill;
+    background: $water;
+    color: $ink;
+    font-size: $text-sm;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: $text-xl;
+  }
+
+  &__tagline {
+    margin-top: $space-1;
+    color: $muted;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: $space-2;
+    margin: $space-4 0;
+
+    strong {
+      font-size: $text-3xl;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: $ink;
+    }
+  }
+
+  &__from {
+    font-size: $text-sm;
+    color: $muted;
+  }
+
+  &__services {
+    display: grid;
+    gap: $space-2;
+    margin-bottom: $space-4;
+
+    li {
+      position: relative;
+      padding-left: 1.4rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.55em;
+        left: 0;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: $water;
+      }
+    }
+  }
+
+  &__duration {
+    margin-top: auto;
+    margin-bottom: $space-4;
+    font-size: $text-sm;
+    color: $muted;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+.area-card {
+  max-width: 40rem;
+  padding: $space-5;
+  background: $mist;
+  border-radius: $radius;
+}
+
+.area-map {
+  width: 100%;
+  height: 22rem;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $mist;
+  border: 1px solid $line;
+  z-index: 0;
+
+  @include up($bp-md) {
+    height: 28rem;
+  }
+}
+
+.area {
+  margin-bottom: $space-8;
+
+  &__title {
+    font-size: $text-2xl;
+  }
+
+  &__text {
+    margin: $space-2 0 $space-5;
+    color: $muted;
+  }
+}

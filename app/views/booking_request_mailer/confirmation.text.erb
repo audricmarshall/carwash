@@ -1,0 +1,7 @@
+Bonjour <%= @booking_request.name %>,
+
+Votre demande de lavage est bien reçue. On vous rappelle au <%= @booking_request.phone %> pour fixer le créneau.
+
+<%= render "booking_request_mailer/summary", booking_request: @booking_request %>
+À bientôt,
+<%= brand[:name] %>

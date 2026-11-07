@@ -1,0 +1,45 @@
+# Déploiement Render : un service web Ruby et une base PostgreSQL, à Francfort.
+# La base gratuite expire 30 jours après sa création : passer en Basic avant l'échéance.
+databases:
+  - name: carwash-db
+    databaseName: carwash
+    user: carwash
+    plan: free
+    region: frankfurt
+
+services:
+  - type: web
+    name: carwash
+    runtime: ruby
+    plan: free
+    region: frankfurt
+    buildCommand: bash bin/render-build.sh
+    startCommand: bundle exec puma -C config/puma.rb
+    healthCheckPath: /up
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: carwash-db
+          property: connectionString
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: RAILS_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: SOLID_QUEUE_IN_PUMA
+        value: "true"
+      - key: RAILS_LOG_LEVEL
+        value: info
+      - key: BRAND_NAME
+        value: Carwash mobile
+      - key: BRAND_PHONE
+        sync: false
+      - key: BRAND_WHATSAPP
+        sync: false
+      - key: BRAND_EMAIL
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: NOTIFY_EMAIL
+        sync: false

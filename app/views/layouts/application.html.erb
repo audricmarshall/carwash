@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b1b2b">
+    <%= inertia_meta_tags(default_title: Brand.name) %>
+    <meta property="og:site_name" content="<%= Brand.name %>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:image" content="<%= request.base_url %>/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="canonical" href="<%= request.base_url + request.path %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= inertia_ssr_head %>
+    <%= vite_react_refresh_tag %>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag "inertia.jsx" %>
+    <script type="application/ld+json"><%= Brand.structured_data(request.base_url).to_json.html_safe %></script>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

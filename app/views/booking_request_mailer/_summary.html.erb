@@ -1,0 +1,11 @@
+<table>
+  <tr><th>Formule</th><td><%= booking_request.package&.name || "À définir ensemble" %></td></tr>
+  <tr><th>Adresse</th><td><%= booking_request.address %>, <%= booking_request.postcode %> <%= booking_request.city %></td></tr>
+  <% if booking_request.vehicle.present? %>
+    <tr><th>Véhicule</th><td><%= booking_request.vehicle %></td></tr>
+  <% end %>
+  <% if booking_request.preferred_date.present? %>
+    <tr><th>Date souhaitée</th><td><%= l(booking_request.preferred_date, format: :long) %></td></tr>
+  <% end %>
+  <tr><th>Moment</th><td><%= t("activerecord.attributes.booking_request.preferred_periods.#{booking_request.preferred_period}") %></td></tr>
+</table>

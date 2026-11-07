@@ -1,0 +1,61 @@
+@use "../tokens" as *;
+
+.site-footer {
+  padding: $space-8 0 $space-6;
+  background: $ink-soft;
+  color: rgba($foam, 0.8);
+  font-size: $text-sm;
+
+  a {
+    color: $foam;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-6;
+
+    @include up($bp-md) {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  &__brand {
+    font-size: $text-lg;
+    font-weight: 800;
+    color: $foam;
+  }
+
+  &__baseline {
+    max-width: 28rem;
+    margin-top: $space-1;
+  }
+
+  &__links {
+    display: grid;
+    gap: $space-2;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $space-3;
+    margin-top: $space-8;
+    padding-top: $space-4;
+    border-top: 1px solid rgba($foam, 0.12);
+  }
+}
+
+.contact-links {
+  display: grid;
+  gap: $space-2;
+
+  &__item {
+    font-weight: 600;
+  }
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: $space-4;
+}

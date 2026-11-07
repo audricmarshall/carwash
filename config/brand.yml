@@ -1,0 +1,26 @@
+# Identité du site. Tout ce qui change avec la marque ou l'immatriculation passe par ici,
+# jamais dans les vues. Les variables d'environnement prennent le dessus sur les valeurs par défaut.
+shared:
+  name: <%= ENV.fetch("BRAND_NAME", "Carwash mobile").to_json %>
+  baseline: "Lavage auto à domicile et au travail, à Toulouse et autour"
+  city: "Toulouse"
+  phone: <%= ENV.fetch("BRAND_PHONE", "").to_json %>
+  whatsapp: <%= ENV.fetch("BRAND_WHATSAPP", "").to_json %>
+  email: <%= ENV.fetch("BRAND_EMAIL", "").to_json %>
+  team:
+    - name: "Olivier Ginenwald"
+      role: "CEO"
+      title: "Dirigeant"
+    - name: "Audric Nomentsoa"
+      role: "CTO"
+      title: "Directeur technique"
+  legal:
+    company_name: <%= ENV.fetch("LEGAL_COMPANY_NAME", "").to_json %>
+    legal_form: <%= ENV.fetch("LEGAL_FORM", "").to_json %>
+    siret: <%= ENV.fetch("LEGAL_SIRET", "").to_json %>
+    address: <%= ENV.fetch("LEGAL_ADDRESS", "").to_json %>
+    host: <%= ENV.fetch("LEGAL_HOST", "").to_json %>
+    publication_director: "Olivier Ginenwald"
+  credits:
+    label: "Site réalisé par Cedauza"
+    url: "https://cedauza.fr"

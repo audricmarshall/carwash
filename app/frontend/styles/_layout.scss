@@ -1,0 +1,124 @@
+@use "tokens" as *;
+
+.container {
+  width: min(100% - 2 * $space-5, 72rem);
+  margin-inline: auto;
+
+  @include up($bp-md) {
+    width: min(100% - 2 * $space-8, 72rem);
+  }
+}
+
+main {
+  display: block;
+}
+
+.section {
+  padding: $space-10 0;
+
+  @include up($bp-md) {
+    padding: $space-12 0;
+  }
+
+  &--mist {
+    background: $mist;
+  }
+
+  &--ink {
+    background: $ink;
+    color: rgba($foam, 0.86);
+
+    .section__title {
+      color: $foam;
+    }
+
+    .section__eyebrow {
+      color: $water;
+    }
+
+    .section__intro {
+      color: rgba($foam, 0.78);
+    }
+  }
+
+  &__header {
+    max-width: 40rem;
+    margin-bottom: $space-6;
+
+    @include up($bp-md) {
+      margin-bottom: $space-8;
+    }
+  }
+
+  &__eyebrow {
+    margin-bottom: $space-2;
+    font-size: $text-sm;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $water-deep;
+  }
+
+  &__title {
+    font-size: clamp($text-2xl, 4.5vw, $text-3xl);
+  }
+
+  &__intro {
+    margin-top: $space-3;
+    font-size: $text-lg;
+    color: $muted;
+  }
+
+  &__more {
+    margin-top: $space-6;
+    font-weight: 600;
+  }
+}
+
+.page-header {
+  padding: calc(var(--header-height) + #{$space-8}) 0 $space-6;
+  background: $mist;
+
+  @include up($bp-md) {
+    padding: calc(var(--header-height) + #{$space-10}) 0 $space-8;
+  }
+
+  &__title {
+    max-width: 18ch;
+    font-size: clamp($text-3xl, 6vw, 3.25rem);
+  }
+
+  &__intro {
+    max-width: 46rem;
+    margin-top: $space-4;
+    font-size: $text-lg;
+    color: $muted;
+  }
+
+  &--center {
+    padding-bottom: $space-10;
+    text-align: center;
+
+    .page-header__title,
+    .page-header__intro {
+      margin-inline: auto;
+    }
+
+    .button {
+      margin-top: $space-6;
+    }
+  }
+}
+
+.prose {
+  max-width: 44rem;
+
+  h2 {
+    margin: $space-6 0 $space-2;
+    font-size: $text-xl;
+  }
+
+  p + p {
+    margin-top: $space-3;
+  }
+}

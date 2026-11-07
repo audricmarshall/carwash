@@ -1,0 +1,5 @@
+* text=auto
+*.gemspec diff=ruby
+*.rb diff=ruby
+db/schema.rb linguist-generated
+package-lock.json linguist-generated

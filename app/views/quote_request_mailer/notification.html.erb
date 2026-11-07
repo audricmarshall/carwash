@@ -1,0 +1,14 @@
+<p>Nouvelle demande de devis entreprise reçue sur le site.</p>
+<table>
+  <tr><th>Société</th><td><%= @quote_request.company %></td></tr>
+  <tr><th>Contact</th><td><%= @quote_request.name %>, <%= @quote_request.phone %>, <%= @quote_request.email %></td></tr>
+  <% if @quote_request.city.present? %>
+    <tr><th>Ville</th><td><%= @quote_request.city %></td></tr>
+  <% end %>
+  <% if @quote_request.fleet_size.present? %>
+    <tr><th>Véhicules</th><td><%= @quote_request.fleet_size %></td></tr>
+  <% end %>
+</table>
+<% if @quote_request.message.present? %>
+  <p>Message :<br><%= simple_format(@quote_request.message) %></p>
+<% end %>

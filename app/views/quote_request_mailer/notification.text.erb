@@ -1,0 +1,15 @@
+Nouvelle demande de devis entreprise reçue sur le site.
+
+Société : <%= @quote_request.company %>
+Contact : <%= @quote_request.name %>, <%= @quote_request.phone %>, <%= @quote_request.email %>
+<% if @quote_request.city.present? %>
+Ville : <%= @quote_request.city %>
+<% end %>
+<% if @quote_request.fleet_size.present? %>
+Véhicules : <%= @quote_request.fleet_size %>
+<% end %>
+<% if @quote_request.message.present? %>
+
+Message :
+<%= @quote_request.message %>
+<% end %>

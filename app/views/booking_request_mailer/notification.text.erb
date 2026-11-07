@@ -1,0 +1,9 @@
+Nouvelle demande de lavage reçue sur le site.
+
+<%= render "booking_request_mailer/summary", booking_request: @booking_request %>
+Contact : <%= @booking_request.phone %>, <%= @booking_request.email %>
+<% if @booking_request.message.present? %>
+
+Message :
+<%= @booking_request.message %>
+<% end %>

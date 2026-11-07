@@ -1,0 +1,76 @@
+fr:
+  activerecord:
+    models:
+      booking_request: "Demande de réservation"
+      quote_request: "Demande de devis"
+      package: "Formule"
+      service: "Prestation"
+      service_area: "Zone d'intervention"
+    attributes:
+      booking_request:
+        package: "Formule"
+        package_id: "Formule"
+        name: "Nom"
+        email: "E-mail"
+        phone: "Téléphone"
+        address: "Adresse"
+        postcode: "Code postal"
+        city: "Ville"
+        vehicle: "Véhicule"
+        preferred_date: "Date souhaitée"
+        preferred_period: "Moment de la journée"
+        message: "Message"
+        consent: "Consentement"
+        preferred_periods:
+          morning: "Matin"
+          afternoon: "Après-midi"
+          evening: "Fin de journée"
+          flexible: "Indifférent"
+      quote_request:
+        company: "Société"
+        name: "Nom du contact"
+        email: "E-mail"
+        phone: "Téléphone"
+        city: "Ville"
+        fleet_size: "Nombre de véhicules"
+        message: "Message"
+        consent: "Consentement"
+      package:
+        name: "Nom"
+        slug: "Identifiant"
+        price_cents: "Prix"
+        duration_minutes: "Durée"
+      service:
+        name: "Nom"
+        slug: "Identifiant"
+        category: "Catégorie"
+      service_area:
+        name: "Nom"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        radius_km: "Rayon"
+    errors:
+      models:
+        booking_request:
+          attributes:
+            consent:
+              accepted: "doit être coché pour envoyer la demande"
+            preferred_date:
+              in_the_past: "ne peut pas être déjà passée"
+            phone:
+              invalid: "n'est pas un numéro valide"
+            postcode:
+              invalid: "doit comporter cinq chiffres"
+        quote_request:
+          attributes:
+            consent:
+              accepted: "doit être coché pour envoyer la demande"
+            phone:
+              invalid: "n'est pas un numéro valide"
+  mailers:
+    booking_request:
+      confirmation_subject: "Votre demande de lavage est bien reçue"
+      notification_subject: "Nouvelle demande de lavage"
+    quote_request:
+      confirmation_subject: "Votre demande de devis est bien reçue"
+      notification_subject: "Nouvelle demande de devis entreprise"

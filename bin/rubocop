@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+ARGV.unshift("--config", File.expand_path("../.rubocop.yml", __dir__))
+load Gem.bin_path("rubocop", "rubocop")
