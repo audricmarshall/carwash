@@ -1,5 +1,5 @@
-# Données de départ du site. Relançable sans doublon : chaque ligne est retrouvée par son identifiant.
-# Prix, durées et rayon sont provisoires, à valider avec Olivier avant la mise en ligne.
+# données de départ du site. Relançable sans doublon : chaque ligne est retrouvée par son identifiant.
+# prix, durées et rayon sont provisoires, à valider avec Olivier avant la mise en ligne.
 
 services = [
   { slug: "prelavage", name: "Prélavage", category: :exterior, position: 1,

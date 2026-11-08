@@ -1,4 +1,4 @@
-# Une formule vendue au client : un nom, un prix, une durée et la liste des prestations incluses.
+# une formule vendue au client : un nom, un prix, une durée et la liste des prestations incluses.
 class Package < ApplicationRecord
   include Sluggable
 

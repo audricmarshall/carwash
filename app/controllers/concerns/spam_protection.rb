@@ -1,4 +1,4 @@
-# Deux barrières sans captcha : un champ caché que seuls les robots remplissent,
+# deux barrières sans captcha : un champ caché que seuls les robots remplissent,
 # et un délai minimal entre l'affichage du formulaire et son envoi.
 module SpamProtection
   extend ActiveSupport::Concern

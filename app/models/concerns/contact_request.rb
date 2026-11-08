@@ -1,4 +1,4 @@
-# Règles communes aux demandes envoyées depuis le site : réservation et devis.
+# règles communes aux demandes envoyées depuis le site : réservation et devis.
 module ContactRequest
   extend ActiveSupport::Concern
 

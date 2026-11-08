@@ -1,4 +1,4 @@
-# Identité du site lue dans config/brand.yml : nom, contact, équipe, mentions légales.
+# identité du site lue dans config/brand.yml : nom, contact, équipe, mentions légales.
 class Brand
   class << self
     def config

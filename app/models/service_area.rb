@@ -1,4 +1,4 @@
-# Une zone couverte : un rayon autour d'un point pour le lavage mobile,
+# une zone couverte : un rayon autour d'un point pour le lavage mobile,
 # une adresse pour une station fixe plus tard.
 class ServiceArea < ApplicationRecord
   enum :kind, { mobile: 0, station: 1 }

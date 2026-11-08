@@ -1,4 +1,4 @@
-# Une demande de réservation envoyée depuis la page Réserver. Le créneau est confirmé par téléphone.
+# une demande de réservation envoyée depuis la page Réserver. Le créneau est confirmé par téléphone.
 class BookingRequest < ApplicationRecord
   include ContactRequest
 

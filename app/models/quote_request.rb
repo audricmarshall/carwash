@@ -1,4 +1,4 @@
-# Une demande de devis envoyée par une entreprise : parking, concession, loueur.
+# une demande de devis envoyée par une entreprise : parking, concession, loueur.
 class QuoteRequest < ApplicationRecord
   include ContactRequest
 

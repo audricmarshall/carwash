@@ -1,5 +1,5 @@
-# Déploiement Render : un service web Ruby et une base PostgreSQL, à Francfort.
-# La base gratuite expire 30 jours après sa création : passer en Basic avant l'échéance.
+# déploiement Render : un service web Ruby et une base PostgreSQL, à Francfort.
+# la base gratuite expire 30 jours après sa création : passer en Basic avant l'échéance.
 databases:
   - name: carwash-db
     databaseName: carwash
@@ -33,13 +33,3 @@ services:
         value: info
       - key: BRAND_NAME
         value: Carwash mobile
-      - key: BRAND_PHONE
-        sync: false
-      - key: BRAND_WHATSAPP
-        sync: false
-      - key: BRAND_EMAIL
-        sync: false
-      - key: MAIL_FROM
-        sync: false
-      - key: NOTIFY_EMAIL
-        sync: false

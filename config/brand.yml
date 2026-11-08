@@ -1,4 +1,4 @@
-# Identité du site. Tout ce qui change avec la marque ou l'immatriculation passe par ici,
+# identité du site. Tout ce qui change avec la marque ou l'immatriculation passe par ici,
 # jamais dans les vues. Les variables d'environnement prennent le dessus sur les valeurs par défaut.
 shared:
   name: <%= ENV.fetch("BRAND_NAME", "Carwash mobile").to_json %>
